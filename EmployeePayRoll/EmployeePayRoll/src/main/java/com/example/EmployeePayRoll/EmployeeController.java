@@ -1,5 +1,6 @@
 package com.example.EmployeePayRoll;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // Declares the class as the controller
@@ -7,17 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 public class EmployeeController {
 
-    // GET request - Fetch Data
-    @GetMapping
-    public String getData() {
-        Employee employee = new Employee("kritika", 50000);
-        return "GET Request: Data fetched successfully!";
-    }
+    // Inject the service using autowired
+    @Autowired
+    private  EmployeeService employeeService;
 
-    // POST request - Create Data
-    @PostMapping
-    public String postData() {
-        return "POST Request: Data created successfully!";
+    // Handle the REST APIs
+    @PostMapping("/create")
+    public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO){
+        return employeeService.createRecord(employeeDTO);
     }
 
 
