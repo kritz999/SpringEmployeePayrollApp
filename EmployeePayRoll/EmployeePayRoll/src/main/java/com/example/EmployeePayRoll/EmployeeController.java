@@ -10,6 +10,7 @@ public class EmployeeController {
     // GET request - Fetch Data
     @GetMapping
     public String getData() {
+        Employee employee = new Employee("kritika", 50000);
         return "GET Request: Data fetched successfully!";
     }
 
@@ -19,15 +20,6 @@ public class EmployeeController {
         return "POST Request: Data created successfully!";
     }
 
-    // PUT request - Update Data
-    @PutMapping
-    public String putData() {
-        return "PUT Request: Data updated successfully!";
-    }
 
-    // DELETE request - Delete Data
-    @DeleteMapping
-    public String deleteData() {
-        return "DELETE Request: Data deleted successfully!";
-    }
+
 }
