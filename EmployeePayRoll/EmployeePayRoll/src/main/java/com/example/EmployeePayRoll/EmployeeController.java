@@ -2,11 +2,11 @@ package com.example.EmployeePayRoll;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-
+@Validated
 @Slf4j
 @RestController
 @RequestMapping("/employee")
@@ -49,6 +49,5 @@ public class EmployeeController {
         log.info("Request to delete the existing employee.");
         return employeeService.deleteEmployee(id);
     }
-
 
 }
